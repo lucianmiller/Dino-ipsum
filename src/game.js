@@ -5,4 +5,8 @@ export default class Game {
     this.currentPlayerIndex = 0;
     this.maxPlayers = 2;
   }
+  
+  addPlayer(...playerObjects) {
+    this.players.push(...playerObjects);
+  }
 }
