@@ -9,4 +9,12 @@ export default class Game {
   addPlayer(...playerObjects) {
     this.players.push(...playerObjects);
   }
+
+  switchPlayers() {
+    if (this.currentPlayerIndex + 1 != this.maxPlayers) {
+      this.currentPlayerIndex += 1;
+    } else if (this.currentPlayerIndex + 1 === this.maxPlayers) {
+      this.currentPlayerIndex = 0;
+    }
+  }
 }
