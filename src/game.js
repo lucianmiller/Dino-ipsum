@@ -26,4 +26,9 @@ export default class Game {
       this.switchPlayers();
     }
   }
+
+  totalScore() {
+    this.players[this.currentPlayerIndex].score += this.currentScore;
+    this.currentScore = 0
+  }
 }
