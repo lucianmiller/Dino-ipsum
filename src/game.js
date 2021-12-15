@@ -17,4 +17,13 @@ export default class Game {
       this.currentPlayerIndex = 0;
     }
   }
+
+  calculateScore (points) {
+    if (points !== 1) {
+      this.currentScore += points
+    } else if (points === 1) {
+      this.currentScore = 0;
+      this.switchPlayers();
+    }
+  }
 }
