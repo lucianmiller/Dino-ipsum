@@ -1,4 +1,4 @@
-class Game {
+export default class Game {
   constructor(playerName, gameWord) {
     this.player = playerName;
     this.gameWord = gameWord
@@ -13,7 +13,6 @@ class Game {
       return false;
     }
   }
-}
 
-const newGame = new Game("Dave", "apple");
-newGame.lettersInWord("p");
+  playerGuess() 
+}
