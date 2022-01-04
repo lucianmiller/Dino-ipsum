@@ -23,7 +23,8 @@ $(document).ready(function() {
   const alphaCharNumbers = Array.from(Array(26)).map((a, i) => i+65);
   // Creating an alphabet array from Ascii codes for lowercase letters
   const alphabet = alphaCharNumbers.map((charNum) => String.fromCharCode(charNum));
-  const newGame = new Game('Player1', 'apple')
+  const newGame = new Game('Player1', 'apple');
+  console.log(newGame.blankWord.join(' '));
   attachListeners(newGame);
   createButtons(alphabet);
   $("form#game-info").submit(function(event) {
