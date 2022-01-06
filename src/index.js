@@ -14,8 +14,15 @@ function createButtons(letterArray) {
 function attachListeners(gameObject) {
   $('ul#buttons').on('click', 'button', function(){
     console.log(gameObject);
+    gameObject.playerGuess(this.value.toLowerCase());
+    displayGame(gameObject);
     this.disabled = true;
   })
+}
+
+function displayGame(game) {
+  $('ul#game-word').html(game.blankWord.join(' '));
+  $('ul#missed-letters').html(game.missedLetters.join(', '));
 }
 
 $(document).ready(function() {
@@ -27,6 +34,7 @@ $(document).ready(function() {
   console.log(newGame.blankWord.join(' '));
   attachListeners(newGame);
   createButtons(alphabet);
+  displayGame(newGame);
   $("form#game-info").submit(function(event) {
     event.preventDefault();
     const userName = $("#name").val;
