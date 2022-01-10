@@ -13,11 +13,11 @@ function createButtons(letterArray) {
 //when using game object prototypes, give attached listeners game object parameter
 function attachListeners(gameObject) {
   $('ul#buttons').on('click', 'button', function(){
-    console.log(gameObject);
     gameObject.playerGuess(this.value.toLowerCase());
     displayGame(gameObject);
     this.disabled = true;
-  })
+    console.log(gameObject.blankWord);
+  });
 }
 
 function displayGame(game) {
@@ -32,6 +32,7 @@ $(document).ready(function() {
   const alphabet = alphaCharNumbers.map((charNum) => String.fromCharCode(charNum));
   const newGame = new Game('Player1', 'apple');
   console.log(newGame.blankWord.join(' '));
+  newGame.createBlankArray();
   attachListeners(newGame);
   createButtons(alphabet);
   displayGame(newGame);
@@ -39,5 +40,5 @@ $(document).ready(function() {
     event.preventDefault();
     const userName = $("#name").val;
     newGame.player = userName;
-  })
-})
+  });
+});
