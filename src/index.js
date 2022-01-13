@@ -14,6 +14,17 @@ function createButtons(letterArray) {
 function attachListeners(gameObject) {
   $('ul#buttons').on('click', 'button', function(){
     gameObject.playerGuess(this.value.toLowerCase());
+    let score = gameObject.scoreChecker();
+    //write conditional to check score for true false or nothing
+    if (score === true) {
+      $('#buttons').hide();
+      $('#game-status').html("You win!");
+    } else if (score === false) {
+      $('#buttons').hide();
+      $('#game-status').html("You Lose!")
+    } else {
+      $('#game-status').html("Game continues...")
+    }
     displayGame(gameObject);
     this.disabled = true;
     console.log(gameObject.blankWord);
