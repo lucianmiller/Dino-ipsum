@@ -26,7 +26,6 @@ export default class Game {
     }
   }
 
-  // create prototype to check if player has won or lost
   scoreChecker() {
     if (this.missedLetters.length >= 5) {
       return false;

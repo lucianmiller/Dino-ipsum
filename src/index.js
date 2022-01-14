@@ -15,7 +15,6 @@ function attachListeners(gameObject) {
   $('ul#buttons').on('click', 'button', function(){
     gameObject.playerGuess(this.value.toLowerCase());
     let score = gameObject.scoreChecker();
-    //write conditional to check score for true false or nothing
     if (score === true) {
       $('#buttons').hide();
       $('#game-status').html(`${gameObject.playerName}, you win!`);
@@ -27,7 +26,6 @@ function attachListeners(gameObject) {
     }
     displayGame(gameObject);
     this.disabled = true;
-    console.log(gameObject.blankWord);
   });
 }
 
