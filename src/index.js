@@ -18,10 +18,10 @@ function attachListeners(gameObject) {
     //write conditional to check score for true false or nothing
     if (score === true) {
       $('#buttons').hide();
-      $('#game-status').html("You win!");
+      $('#game-status').html(`${gameObject.playerName}, you win!`);
     } else if (score === false) {
       $('#buttons').hide();
-      $('#game-status').html("You Lose!")
+      $('#game-status').html(`You lose! The word was ${gameObject.gameWord}.`)
     } else {
       $('#game-status').html("Game continues...")
     }
