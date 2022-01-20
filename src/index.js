@@ -42,7 +42,9 @@ $(document).ready(function() {
   const alphabet = alphaCharNumbers.map((charNum) => String.fromCharCode(charNum));
   let promise = DinoIpsum.getDino();
   promise.then(function(response) {
-    const newGame = new Game('Player1', 'apple');
+    let body = JSON.parse(response);
+    let dinoWord = body[0][0].toLowerCase();
+    const newGame = new Game('Player1', dinoWord);
     newGame.createBlankArray();
     attachListeners(newGame);
     createButtons(alphabet);
@@ -53,6 +55,6 @@ $(document).ready(function() {
   $("form#game-info").submit(function(event) {
     event.preventDefault();
     const userName = $("#name").val;
-    newGame.player = userName;
+    //newGame.player = userName;
   });
 });
